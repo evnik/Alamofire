@@ -300,7 +300,7 @@ final class SessionTestCase: BaseTestCase {
 
         XCTAssertTrue(userAgent?.contains(alamofireVersion) == true)
         XCTAssertTrue(userAgent?.contains(osNameVersion) == true)
-        XCTAssertTrue(userAgent?.contains("xctest/Unknown") == true)
+        XCTAssertTrue(userAgent?.contains("xctest/") == true)
     }
 
     // MARK: Tests - Supported Accept-Encodings
@@ -1549,7 +1549,7 @@ final class SessionMassActionTestCase: BaseTestCase {
         wait(for: [massActions], timeout: timeout)
 
         // Then
-        XCTAssertTrue(requests.allSatisfy { $0.isSuspended })
+        XCTAssertTrue(requests.allSatisfy(\.isSuspended))
     }
 
     func testThatAutomaticallyResumedRequestsCanBeMassCancelled() {
