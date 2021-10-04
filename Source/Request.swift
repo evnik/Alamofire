@@ -1865,7 +1865,7 @@ public class UploadRequest: DataRequest {
         defer { super.cleanup() }
 
         guard
-            let uploadable = self.uploadable,
+            let uploadable = uploadable,
             case let .file(url, shouldRemove) = uploadable,
             shouldRemove
         else { return }
